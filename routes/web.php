@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UsersdetailController;
+
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -13,12 +14,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/userdetail', [UsersdetailController::class,'index'])->name('userdetail.index');
-Route::get('/userdetail/create', [UsersdetailController::class,'create'])->name('userdetail.create');
-Route::post('/userdetail', [UsersdetailController::class,('store')])->name('userdetail.store');
-Route::get('/userdetail/{id}/edit', [UsersdetailController::class,('edit')])->name('userdetail.edit');
-Route::put('/userdetail/{id}', [UsersdetailController::class,('update')])->name('userdetail.update');
-Route::delete('/userdetail/{id}', [UsersdetailController::class,('destroy')])->name('userdetail.destroy');
+Route::get('/user', [UserController::class,'index'])->name('user.index');
+Route::get('/user/create', [UserController::class,'create'])->name('user.create');
+Route::post('/user', [UserController::class,('store')])->name('user.store');
+Route::get('/user/{id}/edit', [UserController::class,('edit')])->name('user.edit');
+Route::put('/user/{id}', [UserController::class,('update')])->name('user.update');
+Route::delete('/user/{id}', [UserController::class,('destroy')])->name('user.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

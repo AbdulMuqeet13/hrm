@@ -3,7 +3,7 @@
         </svg> <span class="fs-4">HRM</span> </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item"> <a href="{{ route('userdetail.index') }}" class="nav-link active" aria-current="page"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+        <li class="nav-item"> <a href="{{ route('user.index') }}" class="nav-link active" aria-current="page"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                     <use xlink:href="#home"></use>
                 </svg>
                 Users

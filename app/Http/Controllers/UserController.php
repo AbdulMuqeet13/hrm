@@ -2,55 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
    public function index(Request $request){
-    $users = Product::get();
-    return view('userdetail.index',compact('users'));
+    $users = User::get();
+    return view('user.index',compact('users'));
    }
 
    public function create(Request $request){
-    return view('userdetail.create');
+    return view('user.create');
    }
    public function store(Request $request){
     $request->validate([
         "name" => "required",
-        "detail" => "required"
+        "email" => "required"
     ]);
 
-    Product::create([
+    User::create([
         "name" => $request->name,
-        "detail" => $request->detail,
+        "detail" => $request->email,
+        'password' => 'password'
 
     ]);
     // dd($request->all());
-    return redirect()->route('userdetail.index');
+    return redirect()->route('user.index');
    }
    public function edit(Request $request, $id){
-      $users = Product::find($id);
-      return view('userdetail.edit', compact('users'));
+      $users = User::find($id);
+      return view('user.edit', compact('users'));
    }
     public function update(Request $request, $id){
     $request->validate([
         "name" => "required",
-        "detail" => "required"
+        "email" => "required"
     ]);
 
-    $users = Product::find($id);
+    $users = User::find($id);
     $users->update([
          "name" => $request->name,
-         "detail" => $request->detail,
+         "email" => $request->email,
     ]);
     // dd($request->all());
-    return redirect()->route('userdetail.index');
+    return redirect()->route('user.index');
    }
 
    public function destroy(Request $resquest, $id){
-          Product::find($id)->delete();
-          return redirect()->route('userdetail.index');
+          User::find($id)->delete();
+          return redirect()->route('user.index');
    }
 }
 

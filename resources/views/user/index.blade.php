@@ -9,7 +9,7 @@
     
         <div class="d-flex flex-row justify-content-between mb-10" >
         <div><h1>User Details</h1></div>
-        <div><a href="{{ route('userdetail.create') }}" class="btn btn-primary">Create User</a></div>
+        <div><a href="{{ route('user.create') }}" class="btn btn-primary">Create User</a></div>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover align-middle ">
@@ -18,6 +18,7 @@
                     <th scope="col">#</th>
                     <th scope="col" style="margin:12px;">Name</th>
                     <th scope="col">Email</th>
+                 
                     <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
@@ -26,14 +27,15 @@
                 <tr>
                 <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->detail }}</td>
+                            <td>{{ $user->email }}</td>
+                            
                     <td class="text-center d-flex">
                         <!-- Edit link -->
-                        <a href="{{route('userdetail.edit', $user->id)}}" 
+                        <a href="{{route('user.edit', $user->id)}}" 
                         class="btn btn-sm btn-primary me-1">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
-                         <form action="{{ route('userdetail.destroy' , $user->id)}}" method="POST">
+                         <form action="{{ route('user.destroy' , $user->id)}}" method="POST">
 
                             @csrf
                             @method('DELETE')
