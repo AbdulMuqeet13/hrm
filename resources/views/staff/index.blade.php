@@ -8,34 +8,35 @@
     @section('content')
     
         <div class="d-flex flex-row justify-content-between mb-10" >
-        <div><h1>User Details</h1></div>
-        <div><a href="{{ route('user.create') }}" class="btn btn-primary">Create User</a></div>
+        <div><h1>Staff Details</h1></div>
+        {{-- <div><a href="{{ route('user.create') }}" class="btn btn-primary">Create User</a></div> --}}
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover align-middle ">
             <thead class="table-dark" >
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col" style="margin:12px;">Name</th>
-                    <th scope="col">Email</th>
-                 
+                    <th scope="col" style="margin:12px;">Department</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col" class="text-center">Salary</th>
                     <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach ($users as $user)
+            @foreach ($staffs as $staff)
                 <tr>
-                <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            
+                <td>{{ $staff->id }}</td>
+                <td>{{ $staff->department }}</td>
+                <td>{{ $staff->designation }}</td>
+                <td>{{ $staff->salary }}</td>
+                           
                     <td class="text-center d-flex">
                         <!-- Edit link -->
-                        <a href="{{route('user.edit', $user->id)}}" 
-                        class="btn btn-sm btn-primary me-1">
-                             <i class="fa-solid fa-pen"></i></i> Edit
+                        <a href="{{route('staff.edit', $staff->id)}}" 
+                        class="btn btn-sm btn-primary me-1" >
+                            <i class="fa-solid fa-pen"></i> Edit
                         </a>
-                         <form action="{{ route('user.destroy' , $user->id)}}" method="POST">
+                         <form action="{{ route('staff.destroy' , $staff->id)}}" method="POST">
 
                             @csrf
                             @method('DELETE')

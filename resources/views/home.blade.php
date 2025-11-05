@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('auth.sidebar')
+
 <div class="container">
     
     <div class="flex justify-content-center align-item-center" >

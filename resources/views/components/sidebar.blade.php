@@ -8,10 +8,10 @@
                 </svg>
                 Users
             </a> </li>
-        <li> <a href="#" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+        <li> <a href="{{ route('staff.index') }}" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                     <use xlink:href="#speedometer2"></use>
                 </svg>
-                Create Users
+                Staff
             </a> </li>
         <li> <a href="#" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                     <use xlink:href="#table"></use>
