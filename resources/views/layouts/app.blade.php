@@ -13,18 +13,20 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app" class="d-flex flex-row items-center just">
-        <div>
+    <div id="app" class="wrapper">
         @include('components.sidebar')
+        @include('components.navbar')
+        <div class="content-wrapper px-5 ">
+            @yield('content')
         </div>
-        <div  >
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm "style="width: 100%; display: block; min-width: 1070px">
-            <div class="container">
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm "style="width: 100%; display: block; min-width: 1070px"> -->
+            {{-- <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -74,15 +76,11 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+            </div> --}}
        
-        </nav>
 
-        <main class="py-4 mx-5">
-            @yield('content')
-        </main>
+        
      
-        </div>
     </div>
 </body>
 </html>
