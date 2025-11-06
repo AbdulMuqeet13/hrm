@@ -39,12 +39,12 @@
               <td class="text-center d-flex">
                         <!-- Edit link -->
                         <a href="{{route('staff.edit', $staff->id)}}" class="btn btn-sm btn-primary me-1 pt-2" data-toggle="tooltip" data-placement="bottom" title="Edit Staff Data">
-                            <i class="fa-solid fa-pen"></i> Edit
+                            <i class="fa-solid fa-pen"></i> 
                         </a>
                          <form action="{{ route('staff.destroy' , $staff->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete Staff Data"><i class="fa-solid fa-trash"></i>Delete</button>
+                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete Staff Data"><i class="fa-solid fa-trash"></i></button>
                         </form>
                     
                        

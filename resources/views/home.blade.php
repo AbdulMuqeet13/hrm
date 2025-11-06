@@ -9,18 +9,15 @@
         
                 
                    
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                        
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" style="padding: 40px 30px 20px 100px; display: flex; align-items: center; justify-content: center;">
+                <div class="p-6 text-gray-900 text-xl">
+                    {{ __("You're logged in!") }}
                 </div>
             </div>
-        
+        </div>
+    </div>
     
 </div>
 @endsection

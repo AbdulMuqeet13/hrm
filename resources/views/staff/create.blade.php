@@ -22,6 +22,14 @@
           <label for="salary" class="form-label fw-semibold">Salary</label>
           <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary">
         </div>
+        <div class="mb-3">
+          <label for="dropdown" class="form-label fw-semibold">Select role</label>
+          <select class="form-select" name="role" id="dropdown">
+            @foreach ($roles as $role)
+            <option value="role">{{ $role->name }}</option> 
+            @endforeach
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

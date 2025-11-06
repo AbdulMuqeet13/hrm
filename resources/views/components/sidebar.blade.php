@@ -1,9 +1,10 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-3">
+
+<aside class="main-sidebar sidebar-dark-primary elevation-3 h-100 ">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
-    
-    <span class="brand-text font-weight-light">Admin Panel</span>
-  </a>
+    {{-- <a href="index3.html" class="brand-link">
+      
+      <span class="brand-text font-weight-light">Admin Panel</span>
+    </a> --}}
 
   <!-- Sidebar -->
   <div class="sidebar">
@@ -11,7 +12,7 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     
       <div class="info">
-        <a href="#" class="d-block">admin</a>
+        <h1 class="d-block "> HRM</h1>
       </div>
     </div>
 

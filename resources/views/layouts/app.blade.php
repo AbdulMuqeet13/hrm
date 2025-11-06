@@ -19,10 +19,10 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app" class="wrapper">
+    <div id="app " class="wrapper" style="height:107%;">
         @include('components.sidebar')
         @include('components.navbar')
-        <div class="content-wrapper px-5 ">
+        <div class="content-wrapper">
             @yield('content')
         </div>
         <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm "style="width: 100%; display: block; min-width: 1070px"> -->
@@ -77,10 +77,6 @@
                     </ul>
                 </div>
             </div> --}}
-       
-
-        
-     
     </div>
 </body>
 </html>
