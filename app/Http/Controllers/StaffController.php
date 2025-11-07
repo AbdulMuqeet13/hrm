@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -14,32 +15,32 @@ class StaffController extends Controller
         return view("staff.index", compact('staffs'));
     }
      public function create(Request $request){
-        $roles = Role::all();
-    return view('staff.create', compact('roles'));
+        $users = User::all();
+    return view('staff.create', compact('users'));
    }
-   public function store(Request $request,$id){
-    $request->validate([
+   public function store(Request $request){
+     $request->validate([
         "department" => "required",
         "designation" => "required",
         "salary" => "required",
-        "role"=>"required"
+        "user_id"=>"required"
     ]);
-    
-    // Get the selected role name from the form
-        $roleName = $request->input('role');
 
-        // Find the role object by its name
-        $role = Role::findByName($roleName);
 
-        // Assign the role to the staff member
-        $id->assignRole($role);
-
-    Staff::create([
+    $staff = Staff::create([
         "department" => $request->department,
         "designation" => $request->designation,
-        'salary' => $request->salary,
-        
+        "salary" => $request->salary,
+         "user_id" => $request->user_id,
     ]);
+     
+        $user = $staff->user;
+
+        $user->assignRole('employee');
+
+        $staff->user->assignRole('employee'); 
+
+
     return redirect()->route('staff.index');
 }
 

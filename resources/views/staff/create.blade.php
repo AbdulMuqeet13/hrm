@@ -23,10 +23,10 @@
           <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary">
         </div>
         <div class="mb-3">
-          <label for="dropdown" class="form-label fw-semibold">Select role</label>
-          <select class="form-select" name="role" id="dropdown">
-            @foreach ($roles as $role)
-            <option value="role">{{ $role->name }}</option> 
+          <label for="dropdown" class="form-label fw-semibold">Select User</label>
+          <select class="form-select" name="user_id" id="dropdown">
+            @foreach ($users as $user)
+            <option value="{{ $user->id }}">{{$user->name }} ({{ $user->email }})</option> 
             @endforeach
           </select>
         </div>

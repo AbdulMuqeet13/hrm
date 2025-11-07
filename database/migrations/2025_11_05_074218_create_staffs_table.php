@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('department');
             $table->string('designation');
             $table->integer('salary');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
