@@ -31,9 +31,9 @@ class StaffController extends Controller
         "department" => $request->department,
         "designation" => $request->designation,
         "salary" => $request->salary,
-         "user_id" => $request->user_id,
+        "user_id" => $request->user_id,
     ]);
-     
+       //instance
         $user = $staff->user;
 
         $user->assignRole('employee');

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttendenceController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,13 @@ Route::delete('/staff/{id}', [StaffController::class,('destroy')])->name('staff.
 
 });
 
+Route::middleware('role:admin|employee')->group(function(){
+Route::get('/attendence', [AttendenceController::class,'index'])->name('attendence.index');
+// Route::get('/attendence/create', [AttendenceController::class,'create'])->name('attendence.create');
+Route::post('/attendence/checkin', [AttendenceController::class,'checkin'])->name('attendence.checkin');
+// Route::get('/attendence/checkout', [AttendenceController::class,'checkout'])->name('attendence.checkout');
+Route::post('/attendence/checkout', [AttendenceController::class,'checkout'])->name('attendence.checkout');
+});
 
 
 
